@@ -56,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  var milestones = [];
 
   void _incrementCounter() {
     setState(() {
@@ -65,6 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      if (_counter%10 == 0) {
+        milestones.add(_counter);
+      }
     });
   }
   void _decrementCounter() {
@@ -127,6 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            for (var number in milestones)
+              ListTile(
+                //leading: Icon(Icons.favorite),
+                title: Text('""'),
+            ),
+
             Column(
               children: <Widget>[
                 if(_counter < 0)
